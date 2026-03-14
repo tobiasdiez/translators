@@ -2,7 +2,6 @@ import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sourc
 
 export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "14763d24-8ba0-45df-8f52-b8d1108e7ac9",
-	"translatorType": 2,
 	"label": "Zotero RDF",
 	"creator": "Simon Kornblith",
 	"target": "rdf",
@@ -18,7 +17,8 @@ export const ZOTERO_TRANSLATOR_INFO = {
 		"exportFileData": false
 	},
 	"inRepository": true,
-	"lastUpdated": "2021-01-25 06:49:57"
+	"translatorType": 2,
+	"lastUpdated": "2026-03-06 21:33:15"
 }
 
 var addedCollections = new Set();
@@ -72,7 +72,7 @@ function generateCollection(collection) {
 	var collectionResource = "#collection_"+collection.id;
 	Zotero.RDF.addStatement(collectionResource, rdf+"type", n.z+"Collection", false);
 	Zotero.RDF.addStatement(collectionResource, n.dc+"title", collection.name, true);
-	
+
 	var children = collection.children ? collection.children : collection.descendents;
 	if (!children) return;
 	for (var i=0; i<children.length; i++) {
@@ -104,7 +104,7 @@ function getDisplayTitle(item) {
 			   participants.push(creator);
 			}
 		}
-		
+
 		var displayTitle = "["+(item.itemType == "letter" ? "Letter" : "Interview");
 		if (participants.length) {
 			//var names = [creator.firstName ? creator.firstName+" "+creator.lastName : creator.lastName
@@ -112,9 +112,9 @@ function getDisplayTitle(item) {
 			for (var i=0; i<participants.length; i++) {
 				names.push(participants[i].lastName);
 			}
-			
+
 			displayTitle += (item.itemType == "letter" ? " to " : " of ")+names[0];
-			
+
 			if (participants.length == 2) {
 				displayTitle += " and "+names[1];
 			} else if (participants.length == 3) {
@@ -123,7 +123,7 @@ function getDisplayTitle(item) {
 				displayTitle += " et al.";
 			}
 		}
-		
+
 		return displayTitle+"]";
 	} if (item.itemType == "case" && item.title && item.reporter) { // 'case' itemTypeID
 		return item.title+' (' + item.reporter + ')';
@@ -134,9 +134,9 @@ function getDisplayTitle(item) {
 function generateItem(item, zoteroType, resource) {
 	var container = null;
 	var containerElement = null;
-	
+
 	/** CORE FIELDS **/
-	
+
 	// type
 	var type = null;
 	if (zoteroType == "book") {
@@ -220,12 +220,12 @@ function generateItem(item, zoteroType, resource) {
 	} else if (zoteroType == "conferencePaper") {
 		container = n.bib+"Journal";
 	}
-	
+
 	if (type) {
 		Zotero.RDF.addStatement(resource, rdf+"type", type, false);
 	}
 	Zotero.RDF.addStatement(resource, n.z+"itemType", zoteroType, true);
-	
+
 	// generate section
 	if (item.section) {
 		var section = Zotero.RDF.newResource();
@@ -236,7 +236,7 @@ function generateItem(item, zoteroType, resource) {
 		// add relationship to resource
 		Zotero.RDF.addStatement(resource, n.dcterms+"isPartOf", section, false);
 	}
-	
+
 	// generate container
 	if (container) {
 		var testISSN = "urn:issn:"+encodeURI(item.ISSN);
@@ -251,7 +251,7 @@ function generateItem(item, zoteroType, resource) {
 		// add container type
 		Zotero.RDF.addStatement(containerElement, rdf+"type", container, false);
 	}
-	
+
 	// generate series
 	if (item.series || item.seriesTitle || item.seriesText || item.seriesNumber) {
 		var series = Zotero.RDF.newResource();
@@ -260,7 +260,7 @@ function generateItem(item, zoteroType, resource) {
 		// add relationship to resource
 		Zotero.RDF.addStatement((containerElement ? containerElement : resource), n.dcterms+"isPartOf", series, false);
 	}
-	
+
 	// generate publisher
 	// BEGIN NSF
 	if (zoteroType == "nsfReviewer") {
@@ -277,21 +277,21 @@ function generateItem(item, zoteroType, resource) {
 			Zotero.RDF.addStatement(resource, n.dc+"publisher", organization, false);
 		}
 	}
-	
+
 	var typeProperties = ["reportType", "videoRecordingType", "letterType",
 							"manuscriptType", "mapType", "thesisType", "websiteType",
 							"audioRecordingType", "presentationType", "postType",
 							"audioFileType"];
 	var ignoreProperties = ["itemID", "itemType", "firstCreator", "dateAdded",
 							"dateModified", "section", "sourceItemID"];
-	
+
 	// creators
 	if (item.creators) {			// authors/editors/contributors
 		var creatorContainers = new Object();
-		
+
 		// not yet in biblio
 		var biblioCreatorTypes = ["author", "editor", "contributor"];
-		
+
 		for (var j in item.creators) {
 			var creator = Zotero.RDF.newResource();
 			Zotero.RDF.addStatement(creator, rdf+"type", n.foaf+"Person", false);
@@ -301,13 +301,13 @@ function generateItem(item, zoteroType, resource) {
 			if (item.creators[j].firstName) {
 				Zotero.RDF.addStatement(creator, n.foaf+"givenName", item.creators[j].firstName, true);
 			}
-			
+
 			if (biblioCreatorTypes.indexOf(item.creators[j].creatorType) != -1) {
 				var cTag = n.bib+item.creators[j].creatorType+"s";
 			} else {
 				var cTag = n.z+item.creators[j].creatorType+"s";
 			}
-			
+
 			if (!creatorContainers[cTag]) {
 				var creatorResource = Zotero.RDF.newResource();
 				// create new seq for author type
@@ -318,25 +318,25 @@ function generateItem(item, zoteroType, resource) {
 			Zotero.RDF.addContainerElement(creatorContainers[cTag], creator, false);
 		}
 	}
-	
+
 	// notes
 	if (item.notes && Zotero.getOption("exportNotes")) {
 		for (let note of item.notes) {
 			let noteResource = itemResources[note.itemID];
-			
+
 			// add note tag
 			Zotero.RDF.addStatement(noteResource, rdf+"type", n.bib+"Memo", false);
 			// add note item.notes
 			Zotero.RDF.addStatement(noteResource, rdf + "value", note.note, true);
 			// add relationship between resource and note
 			Zotero.RDF.addStatement(resource, n.dcterms+"isReferencedBy", noteResource, false);
-			
+
 			// Add note relations to RDF
 			if (note.relations) generateRelations(noteResource, note.relations);
 			generateTags(noteResource, note.tags);
 		}
 	}
-	
+
 	// child attachments
 	if (item.attachments) {
 		for (var i=0; i<item.attachments.length; i++) {
@@ -346,23 +346,23 @@ function generateItem(item, zoteroType, resource) {
 			generateItem(attachment, "attachment", attachmentResource);
 		}
 	}
-	
+
 	// relative file path for attachment items
 	if (item.defaultPath) {	// For Zotero 3.0
 		item.saveFile(item.defaultPath, true);
-		Zotero.RDF.addStatement(resource, rdf+"resource", item.defaultPath, false);
+		Zotero.RDF.addStatement(resource, n.z+"path", item.defaultPath, false);
 	} else if (item.path) {	// For Zotero 2.1
-		Zotero.RDF.addStatement(resource, rdf+"resource", item.path, false);
+		Zotero.RDF.addStatement(resource, n.z+"path", item.path, false);
 	}
-    
+
 	// Related items and tags
 	if (item.relations) generateRelations(resource, item.relations);
 	if (item.tags) generateTags(resource, item.tags);
-	
+
 	for (var property in item.uniqueFields) {
 		var value = item[property];
 		if (!value) continue;
-		
+
 		if (property == "title") {					// title
 			// BEGIN NSF
 			if (zoteroType == "nsfReviewer") {
@@ -515,7 +515,7 @@ function generateItem(item, zoteroType, resource) {
 			Zotero.RDF.addStatement(resource, n.z+property, value, true);
 		}
 	}
-	
+
 	var displayTitle = getDisplayTitle(item);
 	if (displayTitle) Zotero.RDF.addStatement(resource, n.z+"displayTitle", displayTitle, true);
 }
@@ -525,21 +525,21 @@ function doExport() {
 	for (var i in n) {
 		Zotero.RDF.addNamespace(i, n[i]);
 	}
-	
+
 	// leave as global
 	itemResources = new Array();
-	
+
 	// keep track of resources already assigned (in case two book items have the
 	// same ISBN, or something like that)
 	var usedResources = new Array();
-	
+
 	var items = new Array();
-	
+
 	// first, map each ID to a resource
 	while (item = Zotero.nextItem()) {
 		items.push(item);
 		Zotero.debug(item);
-		
+
 		var testISBN = "urn:isbn:"+encodeURI(item.ISBN);
 		if (item.ISBN && !usedResources[testISBN]) {
 			itemResources[item.itemID] = itemResources[item.uri] = testISBN;
@@ -551,13 +551,13 @@ function doExport() {
 			// just specify a node ID
 			itemResources[item.itemID] = itemResources[item.uri] = "#item_" + item.itemID;
 		}
-		
+
 		if (item.notes) {
 			for (var j in item.notes) {
 				itemResources[item.notes[j].itemID] = itemResources[item.notes[j].uri] = "#item_" + item.notes[j].itemID;
 			}
 		}
-		
+
 		if (item.attachments) {
 			for (var i=0; i<item.attachments.length; i++) {
 				var attachment = item.attachments[i];
@@ -566,22 +566,27 @@ function doExport() {
 			}
 		}
 	}
-	
+
 	for (var i=0; i<items.length; i++) {
 		var item = items[i];
 		// these items are global
 		generateItem(item, item.itemType, itemResources[item.itemID]);
 	}
-	
+
 	/** RDF COLLECTION STRUCTURE **/
 	var collection;
 	while (collection = Zotero.nextCollection()) {
 		// Skip collections already added via recursion in generateCollection()
 		// TODO: Remove after everyone has 5.0.96, which fixes this with b3220e83b
 		if (addedCollections.has(collection.id)) continue;
-		
+
 		generateCollection(collection);
 	}
 }
+
+/** BEGIN TEST CASES **/
+var testCases = [
+]
+/** END TEST CASES **/
 // Export translator functions as ES module bindings for adapter
 export { doExport };

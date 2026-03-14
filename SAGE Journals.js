@@ -11,7 +11,7 @@ export const ZOTERO_TRANSLATOR_INFO = {
 	"inRepository": true,
 	"translatorType": 4,
 	"browserSupport": "gcsibv",
-	"lastUpdated": "2023-06-09 21:19:36"
+	"lastUpdated": "2026-02-24 16:20:02"
 }
 
 /*
@@ -80,7 +80,7 @@ async function doWeb(doc, url) {
 	}
 }
 
-async function scrape(doc, url) {
+async function scrape(doc, url = doc.location.href) {
 	let risURL = "//journals.sagepub.com/action/downloadCitation";
 	let doi = ZU.xpathText(doc, '//meta[@name="dc.Identifier" and @scheme="doi"]/@content');
 	if (!doi) {
@@ -153,7 +153,6 @@ var testCases = [
 	{
 		"type": "web",
 		"url": "https://journals.sagepub.com/doi/abs/10.1177/1754073910380971",
-		"detectedItemType": "journalArticle",
 		"items": [
 			{
 				"itemType": "journalArticle",
@@ -341,7 +340,6 @@ var testCases = [
 	{
 		"type": "web",
 		"url": "https://journals.sagepub.com/doi/10.1177/0263276404046059",
-		"detectedItemType": "journalArticle",
 		"items": [
 			{
 				"itemType": "journalArticle",
@@ -379,7 +377,6 @@ var testCases = [
 	{
 		"type": "web",
 		"url": "https://journals.sagepub.com/doi/10.1177/1071181322661302",
-		"detectedItemType": "journalArticle",
 		"items": [
 			{
 				"itemType": "journalArticle",
@@ -424,6 +421,11 @@ var testCases = [
 				"seeAlso": []
 			}
 		]
+	},
+	{
+		"type": "web",
+		"url": "https://journals.sagepub.com/action/doSearch?field1=AllField&text1=%28%28%22violence%22%29+AND+%28%22women%22%29+AND+%28%22floods%22%29%29+OR+%28%28%22violence+against+women%22%29+AND+%28%22floods%22%29%29&field2=AllField&text2=&publication=&Ppub=&access=user&startPage=&ContentItemType=research-article",
+		"items": "multiple"
 	}
 ]
 /** END TEST CASES **/
