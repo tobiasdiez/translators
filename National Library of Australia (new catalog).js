@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "54ac4ec1-9d07-45d3-9d96-48bed3411fb6",
 	"label": "National Library of Australia (new catalog)",
 	"creator": "Philipp Zumstein and Tim Sherratt",
@@ -221,3 +223,5 @@ var testCases = [
 	}
 ]
 /** END TEST CASES **/
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };

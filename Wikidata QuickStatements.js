@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "51e5355d-9974-484f-80b9-f84d2b55782e",
 	"label": "Wikidata QuickStatements",
 	"creator": "Philipp Zumstein with contributors",
@@ -322,3 +324,5 @@ function doExport() {
 		Zotero.write(zoteroItemToQuickStatements(item));
 	}
 }
+// Export translator functions as ES module bindings for adapter
+export { doExport };

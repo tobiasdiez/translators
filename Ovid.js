@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "cde4428-5434-437f-9cd9-2281d14dbf9",
 	"label": "Ovid",
 	"creator": "Simon Kornblith, Michael Berkowitz, and Ovid Technologies",
@@ -300,3 +302,5 @@ function retrievePdfUrl(item, extras) {
 var testCases = [
 ]
 /** END TEST CASES **/
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };

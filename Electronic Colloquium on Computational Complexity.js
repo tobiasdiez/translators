@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "09a9599e-c20e-a405-d10d-35ad4130a426",
 	"label": "Electronic Colloquium on Computational Complexity",
 	"creator": "Jonas Schrieb and Morgan Shirley",
@@ -228,3 +230,5 @@ var testCases = [
 	}
 ]
 /** END TEST CASES **/
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };

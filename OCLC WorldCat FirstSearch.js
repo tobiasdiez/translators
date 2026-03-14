@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "838d8849-4ffb-9f44-3d0d-aa8a0a079afe",
 	"label": "OCLC WorldCat FirstSearch",
 	"creator": "Simon Kornblith",
@@ -211,3 +213,5 @@ function doWeb(doc, url) {
 		});
 	}	
 }
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };

@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "879d738c-bbdd-4fa0-afce-63295764d3b7",
 	"label": "FreePatentsOnline",
 	"creator": "Adam Crymble, Philipp Zumstein",
@@ -263,3 +265,5 @@ var testCases = [
 	}
 ]
 /** END TEST CASES **/
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };

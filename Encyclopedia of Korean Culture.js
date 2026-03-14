@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "dc879929-ae39-45b3-b49b-dab2c80815ab",
 	"label": "Encyclopedia of Korean Culture",
 	"creator": "jacoblee36251",
@@ -219,3 +221,5 @@ var testCases = [
 	}
 ]
 /** END TEST CASES **/
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };

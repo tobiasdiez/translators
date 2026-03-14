@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "a55463ba-e403-415b-80d4-284d5f9b4b15",
 	"label": "Clinical Key",
 	"creator": "Jaret M. Karnuta, Mike Davidson",
@@ -365,3 +367,5 @@ function textToNumber(text){
 	//shift from 0 to 1 based indexing
 	return (number != -1)? number + 1 : text;
 }
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };

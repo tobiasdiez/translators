@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "a8e51f4e-0372-42ad-81a8-bc3dcea6dc03",
 	"label": "Schweizer Radio und Fernsehen SRF",
 	"creator": "ibex, Sebastian Karcher",
@@ -150,3 +152,5 @@ var testCases = [
 	}
 ]
 /** END TEST CASES **/
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };

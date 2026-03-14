@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "17c974e6-7c4f-4ac8-93af-8d74debca110",
 	"label": "OhioLINK",
 	"creator": "Aurimas Vinckevicius",
@@ -41,3 +43,5 @@ function doWeb(doc, url) {
 		trans.translate();
 	});
 }
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };

@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "dedcae51-073c-48fb-85ce-2425e97f128d",
 	"label": "Archive Ouverte en Sciences de l'Information et de la Communication  (AOSIC)",
 	"creator": "Michael Berkowitz",
@@ -177,3 +179,5 @@ var testCases = [
 	}
 ]
 /** END TEST CASES **/
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };

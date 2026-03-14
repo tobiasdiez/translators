@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "374ac2a5-dd45-461e-bf1f-bf90c2eb7085",
 	"label": "Tagesspiegel",
 	"creator": "Martin Meyerhoff, Sebastian Karcher, Jaco Lüken",
@@ -247,3 +249,5 @@ var testCases = [
 	}
 ]
 /** END TEST CASES **/
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };

@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "88e11bcb-464d-4b6d-a446-8994e3b865c9",
 	"label": "Web of Science",
 	"creator": "Philipp Zumstein",
@@ -226,3 +228,5 @@ function fetchIds(ids, doc) {
 
 	}, { 'Referer': doc.location.href });
 }
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };

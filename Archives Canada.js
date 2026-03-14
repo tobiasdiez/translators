@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "18bc329c-51af-497e-a7cf-aa572fae363d",
 	"label": "Archives Canada",
 	"creator": "Adam Crymble",
@@ -140,3 +142,5 @@ function doWeb(doc, url) {
 		scrape(doc, url);
 	}
 }
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };

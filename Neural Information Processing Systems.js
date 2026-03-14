@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "c816f8ad-4c73-4f6d-914e-a6e7212746cf",
 	"label": "Neural Information Processing Systems",
 	"creator": "Fei Qi, Sebastian Karcher, Guy Aglionby, and Abe Jellinek",
@@ -383,3 +385,5 @@ var testCases = [
 	}
 ]
 /** END TEST CASES **/
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };

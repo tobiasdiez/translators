@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "b10bf941-12e9-4188-be04-f6357fa594a0",
 	"label": "Old Bailey Online",
 	"creator": "Sharon Howard and Adam Crymble",
@@ -313,3 +315,5 @@ var testCases = [
 	}
 ]
 /** END TEST CASES **/
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };

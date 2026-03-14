@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "99592877-f698-4e14-b541-b6181f6c577f",
 	"label": "Public Record Office Victoria",
 	"creator": "Tim Sherratt (tim@timsherratt.au)",
@@ -250,3 +252,5 @@ var testCases = [
 	}
 ]
 /** END TEST CASES **/
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };

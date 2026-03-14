@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "8e5f8616-05d0-4d33-8554-dad76b20ecbx",
 	"label": "Hanrei Watch RSS service",
 	"creator": "Frank Bennett",
@@ -121,3 +123,5 @@ var testCases = [
 	}
 ]
 /** END TEST CASES **/
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };

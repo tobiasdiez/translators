@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "660fcf3e-3414-41b8-97a5-e672fc2e491d",
 	"label": "EBSCO Discovery Layer",
 	"creator": "Sebastian Karcher",
@@ -157,3 +159,5 @@ async function scrape(doc, url = doc.location.href) {
 var testCases = [
 ]
 /** END TEST CASES **/
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };

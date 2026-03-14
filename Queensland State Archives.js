@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "214505fc-fa92-4b35-b323-5f12a4b157cb",
 	"label": "Queensland State Archives",
 	"creator": "Tim Sherratt (tim@timsherratt.au)",
@@ -301,3 +303,5 @@ var testCases = [
 	}
 ]
 /** END TEST CASES **/
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };

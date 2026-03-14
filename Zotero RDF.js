@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "14763d24-8ba0-45df-8f52-b8d1108e7ac9",
 	"translatorType": 2,
 	"label": "Zotero RDF",
@@ -581,3 +583,5 @@ function doExport() {
 		generateCollection(collection);
 	}
 }
+// Export translator functions as ES module bindings for adapter
+export { doExport };

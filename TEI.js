@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "032ae9b7-ab90-9205-a479-baf81f49184a",
 	"translatorType": 2,
 	"label": "TEI",
@@ -646,3 +648,5 @@ function doExport() {
 	var serializer = new XMLSerializer();
 	Zotero.write(serializer.serializeToString(outputElement));
 }
+// Export translator functions as ES module bindings for adapter
+export { doExport };

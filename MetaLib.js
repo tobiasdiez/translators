@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "b06d2609-ebca-4125-ac67-6d7a0dba274e",
 	"label": "MetaLib",
 	"creator": "Aurimas Vinckevicius",
@@ -124,3 +126,5 @@ function doWeb(doc, url) {
 		scrapeExport([getBasketLinks(doc)[0].textContent]);
 	}
 }
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };

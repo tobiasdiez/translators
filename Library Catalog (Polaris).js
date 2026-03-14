@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "12541207-ed80-4b59-9d46-fafa3aa61f7f",
 	"label": "Library Catalog (Polaris)",
 	"creator": "Aurimas Vinckevicius",
@@ -181,3 +183,5 @@ function scrape(pos) {
 		})
 	});
 }
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };

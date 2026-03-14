@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "0aea3026-a246-4201-a4b5-265f75b9a6a7",
 	"label": "Australian Dictionary of Biography",
 	"creator": "Sebastian Karcher",
@@ -194,3 +196,5 @@ var testCases = [
 	}
 ]
 /** END TEST CASES **/
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };

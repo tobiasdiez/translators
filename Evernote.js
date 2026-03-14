@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "18dd188a-9afc-4cd6-8775-1980c3ce0fbf",
 	"label": "Simple Evernote Export",
 	"creator": "Volodymir Skipa",
@@ -102,3 +104,5 @@ function doExport() {
 	Zotero.write(evernoteString);
 	Zotero.write("</en-export>\n");
 }
+// Export translator functions as ES module bindings for adapter
+export { doExport };

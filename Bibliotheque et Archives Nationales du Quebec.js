@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "59cce211-9d77-4cdd-876d-6229ea20367f",
 	"translatorType": 4,
 	"label": "Bibliothèque et Archives Nationales du Québec",
@@ -264,3 +266,5 @@ function doWeb(doc, url) {
 		ZU.processDocuments([url], scrape);
 	}
 }
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };

@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "dede653d-d1f8-411e-911c-44a0219bbdad",
 	"label": "GPO Access e-CFR",
 	"creator": "Bill McKinney, Sebastian Karcher",
@@ -132,3 +134,5 @@ var testCases = [
 	}
 ]
 /** END TEST CASES **/
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };

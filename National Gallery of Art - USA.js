@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "ed28758b-9c39-4e1c-af89-ce1c9202b70f",
 	"label": "National Gallery of Art - USA",
 	"creator": "Adam Crymble and Abe Jellinek",
@@ -147,3 +149,5 @@ var testCases = [
 	}
 ]
 /** END TEST CASES **/
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };

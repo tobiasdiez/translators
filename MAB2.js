@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "91acf493-0de7-4473-8b62-89fd141e6c74",
 	"label": "MAB2",
 	"creator": "Simon Kornblith. Adaptions for MAB2: Leon Krauthausen (FUB)",
@@ -371,3 +373,5 @@ var exports = {
 	"recordTerminator":recordTerminator,
 	"subfieldDelimiter":subfieldDelimiter
 };
+// Export translator functions as ES module bindings for adapter
+export { detectImport, doImport };

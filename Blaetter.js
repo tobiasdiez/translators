@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "e8e10bd4-fd6f-4297-a060-a8e0a479043f",
 	"label": "Blaetter fuer deutsche und internationale Politik",
 	"creator": "Martin Meyerhoff",
@@ -190,3 +192,5 @@ var testCases = [
 	}
 ]
 /** END TEST CASES **/
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };

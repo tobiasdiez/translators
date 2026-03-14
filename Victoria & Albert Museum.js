@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "56fc13bf-411f-4409-9a61-3d334d76763b",
 	"label": "Victoria & Albert Museum",
 	"creator": "Richard Palmer - V&A Digital Media & Publishing",
@@ -275,3 +277,5 @@ var testCases = [
 	}
 ]
 /** END TEST CASES **/
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };

@@ -1,4 +1,6 @@
-{
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
+
+export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "cbed2134-f963-43a0-a8ad-9813e94de9a7",
 	"label": "Cascadilla Proceedings Project",
 	"creator": "Abe Jellinek",
@@ -388,3 +390,5 @@ var testCases = [
 	}
 ]
 /** END TEST CASES **/
+// Export translator functions as ES module bindings for adapter
+export { detectWeb, doWeb };
