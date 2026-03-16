@@ -860,12 +860,7 @@ function doImport() {
 	}
 }
 
-var exports = {
-	record: record,
-	fieldTerminator: fieldTerminator,
-	recordTerminator: recordTerminator,
-	subfieldDelimiter: subfieldDelimiter
-};
+
 
 /** BEGIN TEST CASES **/
 var testCases = [
@@ -1080,5 +1075,13 @@ var testCases = [
 	}
 ]
 /** END TEST CASES **/
+// Export translator compatibility exports for adapter
+export const exports = {
+	record: record,
+	fieldTerminator: fieldTerminator,
+	recordTerminator: recordTerminator,
+	subfieldDelimiter: subfieldDelimiter
+};
+
 // Export translator functions as ES module bindings for adapter
 export { detectImport, doImport };

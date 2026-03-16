@@ -1026,15 +1026,7 @@ function relativeToAbsolute(doc, url) {
 	return location.replace(/([^/]\/)[^/]+$/, '$1') + url;
 }
 
-var exports = {
-	doWeb: doWeb,
-	detectWeb: detectWeb,
-	addCustomFields: addCustomFields,
-	itemType: false,
-	// activate/deactivate splitting tags in final data cleanup when they contain commas or semicolons
-	splitTags: true,
-	fixSchemaURI: setPrefixRemap
-};
+
 
 /** BEGIN TEST CASES **/
 var testCases = [
@@ -1978,5 +1970,16 @@ var testCases = [
 	}
 ]
 /** END TEST CASES **/
+// Export translator compatibility exports for adapter
+export const exports = {
+	doWeb: doWeb,
+	detectWeb: detectWeb,
+	addCustomFields: addCustomFields,
+	itemType: false,
+	// activate/deactivate splitting tags in final data cleanup when they contain commas or semicolons
+	splitTags: true,
+	fixSchemaURI: setPrefixRemap
+};
+
 // Export translator functions as ES module bindings for adapter
 export { detectWeb, doWeb };

@@ -1551,13 +1551,7 @@ function importNext(nodes, index, collections, resolve, reject) {
 /**
  * Export doImport and defaultUnknownType to other translators
  */
-var exports = {
-	doImport: doImport,
-	detectType: detectType,
-	getNodes: getNodes,
-	defaultUnknownType: false,
-	itemType: false
-};
+
 
 /** BEGIN TEST CASES **/
 var testCases = [
@@ -1782,5 +1776,14 @@ var testCases = [
 	}
 ]
 /** END TEST CASES **/
+// Export translator compatibility exports for adapter
+export const exports = {
+	doImport: doImport,
+	detectType: detectType,
+	getNodes: getNodes,
+	defaultUnknownType: false,
+	itemType: false
+};
+
 // Export translator functions as ES module bindings for adapter
 export { detectImport, doImport };

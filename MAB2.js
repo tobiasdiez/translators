@@ -366,12 +366,13 @@ function doImport() {
 		}
 	}
 }
-
-var exports = {
+// Export translator compatibility exports for adapter
+export const exports = {
 	"record":record,
 	"fieldTerminator":fieldTerminator,
 	"recordTerminator":recordTerminator,
 	"subfieldDelimiter":subfieldDelimiter
 };
+
 // Export translator functions as ES module bindings for adapter
 export { detectImport, doImport };

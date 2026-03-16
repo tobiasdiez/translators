@@ -2180,11 +2180,7 @@ function doExport() {
 	}
 }
 
-var exports = {
-	doExport: doExport,
-	doImport: doImport,
-	options: exportedOptions
-};
+
 
 /** BEGIN TEST CASES **/
 var testCases = [
@@ -7292,5 +7288,12 @@ var testCases = [
 	}
 ]
 /** END TEST CASES **/
+// Export translator compatibility exports for adapter
+export const exports = {
+	doExport: doExport,
+	doImport: doImport,
+	options: exportedOptions
+};
+
 // Export translator functions as ES module bindings for adapter
 export { detectImport, doImport, doExport };

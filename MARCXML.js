@@ -108,7 +108,7 @@ async function doImport() {
 	}
 }
 
-var exports = { parseDocument };
+
 
 /** BEGIN TEST CASES **/
 var testCases = [
@@ -489,5 +489,8 @@ var testCases = [
 	}
 ]
 /** END TEST CASES **/
+// Export translator compatibility exports for adapter
+export const exports = { parseDocument };
+
 // Export translator functions as ES module bindings for adapter
 export { detectImport, doImport };

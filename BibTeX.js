@@ -1575,12 +1575,7 @@ function doExport() {
 	Zotero.write("\n");
 }
 
-var exports = {
-	"doExport": doExport,
-	"doImport": doImport,
-	"setKeywordDelimRe": setKeywordDelimRe,
-	"setKeywordSplitOnSpace": setKeywordSplitOnSpace
-};
+
 
 /*
  * new mapping table based on that from Matthias Steffens,
@@ -4236,5 +4231,13 @@ var testCases = [
 	}
 ]
 /** END TEST CASES **/
+// Export translator compatibility exports for adapter
+export const exports = {
+	"doExport": doExport,
+	"doImport": doImport,
+	"setKeywordDelimRe": setKeywordDelimRe,
+	"setKeywordSplitOnSpace": setKeywordSplitOnSpace
+};
+
 // Export translator functions as ES module bindings for adapter
 export { detectImport, doImport, doExport };
