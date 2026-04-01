@@ -1,4 +1,4 @@
-import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "/sandbox.js";
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
 export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "162b43d7-e29d-4cf0-9e05-85e472613430",
 	"label": "Data.gov",

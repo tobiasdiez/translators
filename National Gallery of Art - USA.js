@@ -1,4 +1,4 @@
-import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "/sandbox.js";
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
 export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "ed28758b-9c39-4e1c-af89-ce1c9202b70f",
 	"label": "National Gallery of Art - USA",

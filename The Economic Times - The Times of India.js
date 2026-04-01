@@ -1,4 +1,4 @@
-import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "/sandbox.js";
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
 export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "1a9a7ecf-01e9-4d5d-aa19-a7aa4010da83",
 	"label": "The Economic Times - The Times of India",

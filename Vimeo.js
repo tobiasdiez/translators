@@ -1,4 +1,4 @@
-import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "/sandbox.js";
+import { ZU, Zotero, Z, text, requestJSON, requestText, attr } from "../../sources/sandbox.js";
 export const ZOTERO_TRANSLATOR_INFO = {
 	"translatorID": "1b0ffe71-1c2f-4a79-b894-40b990b3e491",
 	"label": "Vimeo",
