@@ -40,7 +40,6 @@ export const ZOTERO_TRANSLATOR_INFO = {
 	***** END LICENSE BLOCK *****
 */
 
-function attr(docOrElem,selector,attr,index){var elem=index?docOrElem.querySelectorAll(selector).item(index):docOrElem.querySelector(selector);return elem?elem.getAttribute(attr):null}function text(docOrElem,selector,index){var elem=index?docOrElem.querySelectorAll(selector).item(index):docOrElem.querySelector(selector);return elem?elem.textContent:null}
 /** select a Mime type for the attachment **/
 function selectMimeType(url) {
 	let fileType = url.replace(/^.*(\..+?)$/, '$1');

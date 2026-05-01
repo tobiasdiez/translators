@@ -10,7 +10,7 @@ export const ZOTERO_TRANSLATOR_INFO = {
 	"inRepository": true,
 	"translatorType": 4,
 	"browserSupport": "gcsibv",
-	"lastUpdated": "2022-12-28 02:37:11"
+	"lastUpdated": "2026-04-01 18:00:00"
 }
 
 /*

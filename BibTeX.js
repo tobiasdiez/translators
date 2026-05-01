@@ -19,7 +19,7 @@ export const ZOTERO_TRANSLATOR_INFO = {
 	},
 	"inRepository": true,
 	"translatorType": 3,
-	"lastUpdated": "2024-03-25 14:51:02"
+	"lastUpdated": "2026-04-01 18:00:00"
 }
 
 /*
